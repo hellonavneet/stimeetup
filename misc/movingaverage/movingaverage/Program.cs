@@ -62,7 +62,7 @@ namespace movingaverage
             q.RemoveRange(insertat, q.Count-insertat);
 
             //Remove all the values that are at indexes which need to be slide out even if they are greater than value
-            q = q.SkipWhile(kv => kv.Value < index - k).ToList();
+            q = q.SkipWhile(kv => kv.Value <= index - k).ToList();
             q.Add(new KeyValuePair<int, int>(value, index));
         }
 
